@@ -8,11 +8,21 @@ from rrt import BidirectionalRRT
 
 
 class PostProcessing:
-    def __init__(self, method):
-        # self.method = method
+    def __init__(self):
         pass
 
-    def path_short_cutting(self, map: Map, path: list, max_rep: int):
+    def path_short_cutting(self, map: Map, path: list, max_rep: int) -> list:
+        """
+        Shortcuts the path by attempting to connect random pairs of nodes directly.
+
+        Args:
+            map (Map): The map object to check distances and collisions.
+            path (list): The original path to be shortened.
+            max_rep (int): The maximum number of shortcut attempts.
+
+        Returns:
+            list: The shortened path.
+        """
         if (path is not None and len(path) <= 2):
             print("Nothing to shortcut")
             return path
@@ -27,6 +37,8 @@ class PostProcessing:
                     [node2] + path[random_indices[1]+1:]
         return path
 
+    def trajectory_short_cutting(self, map: Map, path: list, max_rep: int):
+        pass
 
 if __name__ == "__main__":
     map = Map()

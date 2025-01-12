@@ -15,19 +15,19 @@ import rospy
 class MotionPlanning:
     def __init__(self):
         rospy.init_node('motion_planning', anonymous=True)
-        self.algorithm = rospy.get_param("algorithm", "rrt")
+        # self.algorithm = rospy.get_param("algorithm", "rrt")
 
         # Map
         self.map_config = rospy.get_param("map_config", {})
+        self.algorithm = rospy.get_param("algorithm", "rrt")
         self.random_seed = self.map_config.get(
             "random_seed", None)  # Default to None if not present
         self.size_x = self.map_config.get("size_x", 10)
         self.size_y = self.map_config.get("size_y", 6)
         self.n_obs = self.map_config.get("n_obs", 4)
         self.robot_radius = self.map_config.get("robot_radius", 0.05)
-
+        
         # Post Processing
-        self.post_processing_method = rospy.get_param("method", "")
         self.path_shortcut = rospy.get_param("path_shortcut", {})
         self.max_rep_path_shortcut = self.path_shortcut.get("max_rep")
 
@@ -58,10 +58,13 @@ class MotionPlanning:
 
         # Generate PRM
         samples = prm.sample_free_space(map)
+        rospy.loginfo("Finished samples!")
         graph = prm.generate_road_map(map, samples)  # Adjacent list
+        rospy.loginfo("Finished generate roadmap!")
 
         # Find Path - Dijkstra's Algorithm
         path, _ = search.dijkstra(graph, map.get_start(), map.get_goal())
+        rospy.loginfo("Finished Find path!")
         if (len(path) == 0):
             rospy.logerr("Cannot find path!")
             return

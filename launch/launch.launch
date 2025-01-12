@@ -2,10 +2,11 @@
   <!-- Load parameters from the YAML file -->
   <rosparam file="$(find motion_planning)/cfg/map.yaml" command="load"/>
   <rosparam file="$(find motion_planning)/cfg/post_processing.yaml" command="load"/>
+  <rosparam file="$(find motion_planning)/cfg/prm.yaml" command="load"/>
   <rosparam file="$(find motion_planning)/cfg/rrt.yaml" command="load"/>
 
   <!-- Start the map node -->
-  <node pkg="motion_planning" type="main.py" name="rrt" output="screen">
-    <param name="algorithm" value="rrt" />
+  <node pkg="motion_planning" type="main.py" name="main" output="screen">
+    <!-- <param name="algorithm" value="prm" /> -->
   </node>
 </launch>

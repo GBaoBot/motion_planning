@@ -34,8 +34,10 @@ class SearchAlgo:
 
         while pq:
             current_distance, current_node = heapq.heappop(pq)
+            
             if current_node == goal_node:
                 break
+            
             for neighbor, weight in graph.get(current_node, []):
                 distance = current_distance + weight
 
@@ -46,7 +48,7 @@ class SearchAlgo:
 
         # Reconstruct the path
         start_node_to_goal_node = self._reconstruct_path(previous, goal_node)
-        if not start_node_to_goal_node or start_node_to_goal_node[-1] != goal_node:
+        if previous[goal_node] is None:
             print("No path found")
             return [], float('inf')
         self.path = [starting_point] + start_node_to_goal_node + [goal_point]

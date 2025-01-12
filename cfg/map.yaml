@@ -1,6 +1,8 @@
 map_config:
   random_seed: 4
   size_x: 10
-  size_y: 10
+  size_y: 5
   n_obs: 5
-  robot_radius: 0.05
+  robot_radius: 0.01
+
+algorithm: "rrt"
