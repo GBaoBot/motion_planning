@@ -1,0 +1,5 @@
+map_config:
+  random_seed: 4
+  size_x: 10
+  size_y: 10
+  n_obs: 5
