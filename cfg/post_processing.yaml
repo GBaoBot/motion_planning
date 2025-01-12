@@ -1,2 +1,4 @@
+method: "path_shortcut"
+
 path_shortcut:
   max_rep: 100
