@@ -3,3 +3,4 @@ map_config:
   size_x: 10
   size_y: 10
   n_obs: 5
+  robot_radius: 0.05

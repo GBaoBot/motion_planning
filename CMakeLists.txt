@@ -161,8 +161,8 @@ include_directories(
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
 catkin_install_python(PROGRAMS
+  src/main.py
   # src/test.py
-  src/test.py
   src/prm.py
   src/rrt.py
   src/post_processing.py

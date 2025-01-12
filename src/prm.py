@@ -5,11 +5,8 @@ import utils.environment_2d as environment_2d
 from utils.map import Map
 from utils.search_algorithm import SearchAlgo
 
-import rospy
-
 class PRM:
     def __init__(self, random_seed=4, num_samples=100, max_edge_length=2):
-        rospy.init_node('center_node', anonymous=True)
         if random_seed is not None:
             np.random.seed(random_seed)
         

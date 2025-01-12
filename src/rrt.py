@@ -38,7 +38,7 @@ class BidirectionalRRT:
                     self.path = self.merge_tree(node_from_other_tree, new_goal_node)
                     return self.path 
             
-        return None
+        return []
             
     def connect_tree(self, map: Map, node, tree):
         '''
@@ -128,8 +128,8 @@ if __name__ == "__main__":
     map.generate_2D_map_with_obstacles(20, 10, 8)
     map.generate_start_and_goal()
     
-    path = rrt.run(map, map.get_start(), map.get_goal(), 1000)    
-    rrt.plot_path_on_map(map, path)
-    
+    path = rrt.run(map, map.get_start(), map.get_goal(), 1000)  
+      
+    map.plot_path_on_map(path)
     map.show_map()
     

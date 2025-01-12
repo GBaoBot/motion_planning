@@ -11,7 +11,7 @@ class PostProcessing:
         pass
     
     def path_short_cutting(self, map: Map, path: list, max_rep: int):
-        if (len(path) <= 2):
+        if (path is not None and len(path) <= 2):
             print("Nothing to shortcut")
             return path
         for _ in range(max_rep):
