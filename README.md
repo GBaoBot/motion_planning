@@ -14,10 +14,9 @@ This repository is used for implementing and testing motion planning algorithms.
 - **Future Work**: To make the package integrable and reusable as a separate library, the algorithms can be turned into ROS action servers. ROS topics or services can be used to enable communication within the system.
 
 ## Usage
+To reconfigure the map as well as the algorithms, all you need to do is adjusting the value of parameters in YAML files inside `cfg` directory. For example, to select the algorithm, please navigate to cfg/map.yaml and change the value of `algorithm`, currently supporting `'prm'` and `'rrt'`.
 
-To run the motion planning algorithms, use the provided launch files and configure the parameters as needed. The launch files load the necessary parameters and start the main node:
-- **launch.launch**: Loads parameters from YAML files and starts the main node.
-
+To run the motion planning algorithms, use the provided launch files `launch.launch` and configure the parameters as needed. The launch files `launch.launch` load the necessary parameters and start the main node, to launch, please run this command line (after starting roscore):
 ```bash
 roslaunch motion_planning launch.launch
 ```
@@ -38,6 +37,18 @@ In the `src` directory, the following files are included:
 - `main.py`: Contains the main pipeline to process PRM or RRT with post-processing, reading configurations from the `cfg` directory.
 
 The `utils` directory contains essential components for implementing and testing the algorithms, including environment setup, map handling, and search algorithms. 
+
+## Results
+
+Here are some results of the motion planning algorithms:
+
+| PRM Algorithm | PRM Algorithm with Post-Processing |
+|---------------------------------------|------------------------------------|
+| ![PRM Result](src/motion_planning/docs/imgs/prm_no_shorcutting.png) | ![PRM Result](src/motion_planning/docs/imgs/prm_shorcutting.png) |
+
+| Bidirectional RRT Algorithm | Bidirectional RRT Algorithm with Post-Processing |
+|-----------------------------|--------------------------------------------------|
+| ![RRT Result](src/motion_planning/docs/imgs/rrt_no_shortcutting.png) | ![RRT Result](src/motion_planning/docs/imgs/rrt_shortcutting.png) |
 
 ## Dependencies
 
