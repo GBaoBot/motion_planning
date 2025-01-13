@@ -44,11 +44,11 @@ Here are some results of the motion planning algorithms:
 
 | PRM Algorithm | PRM Algorithm with Post-Processing |
 |---------------------------------------|------------------------------------|
-| ![PRM Result](src/motion_planning/docs/imgs/prm_no_shorcutting.png) | ![PRM Result](src/motion_planning/docs/imgs/prm_shorcutting.png) |
+| ![PRM Result](docs/imgs/prm_no_shorcutting.png) | ![PRM Result](docs/imgs/prm_shortcutting.png) |
 
 | Bidirectional RRT Algorithm | Bidirectional RRT Algorithm with Post-Processing |
 |-----------------------------|--------------------------------------------------|
-| ![RRT Result](src/motion_planning/docs/imgs/rrt_no_shortcutting.png) | ![RRT Result](src/motion_planning/docs/imgs/rrt_shortcutting.png) |
+| ![RRT Result](docs/imgs/rrt_no_shortcutting.png) | ![RRT Result](docs/imgs/rrt_shortcutting.png) |
 
 ## Dependencies
 
